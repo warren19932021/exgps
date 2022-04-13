@@ -41,12 +41,13 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 RunAction::RunAction()
+  : fFileName("exgps")
 // : G4UserRunAction(), fHistoManager(0)
 // : G4UserRunAction()
 {
   G4AnalysisManager* analysis = G4AnalysisManager::Instance();
 
-
+  analysis->SetFileName(fFileName);
 
 
   // Default values (to be reset via /analysis/h1/set command)               
@@ -147,8 +148,8 @@ void RunAction::BeginOfRunAction(const G4Run*)
      G4cout<<"test output in RunAction::BeginOfRunAction   222222222"<<G4endl;
 //  if ( analysisManager->IsActive() ) {
      G4cout<<"test output in RunAction::BeginOfRunAction   333333333"<<G4endl;
-     //analysisManager->OpenFile();
-     analysisManager->OpenFile("testest.root");
+     analysisManager->OpenFile();
+     //analysisManager->OpenFile("testest.root");
 //  }  
 }
 
