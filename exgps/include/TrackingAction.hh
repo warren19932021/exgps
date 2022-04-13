@@ -37,6 +37,9 @@
 #include "G4UserTrackingAction.hh"
 #include "globals.hh"
 
+//-------I add this header file
+#include "g4root.hh"
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 class TrackingAction : public G4UserTrackingAction

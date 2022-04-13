@@ -31,7 +31,6 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 #include "TrackingAction.hh"
-#include "HistoManager.hh"
 
 #include "G4Track.hh"
 #include "G4SystemOfUnits.hh"
@@ -48,7 +47,6 @@ TrackingAction::TrackingAction()
 void TrackingAction::PreUserTrackingAction(const G4Track* track)
 {
   G4int pid               = track->GetDynamicParticle()->GetPDGcode();
-  G4cout<<"test output1.0 pid: "<<pid<<G4endl;
   G4double ekin           = track->GetKineticEnergy();
   G4ThreeVector vertex    = track->GetPosition();
   G4ThreeVector direction = track->GetMomentumDirection();
@@ -77,10 +75,7 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
   analysisManager->FillH2(5,phi,theta);
 
   // fill ntuple  
-  G4cout<<"test output1 "<<G4endl;
-  analysisManager->FillNtupleIColumn(0,2);
-  //analysisManager->FillNtupleIColumn(0,pid);
-  G4cout<<"test output2 "<<G4endl;
+  analysisManager->FillNtupleIColumn(0,pid);
   analysisManager->FillNtupleDColumn(1,ekin);
   analysisManager->FillNtupleDColumn(2,x);
   analysisManager->FillNtupleDColumn(3,y);

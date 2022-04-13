@@ -64,37 +64,27 @@ int main(int argc,char** argv) {
 
   runManager->SetUserInitialization(new ActionInitialization);
 
-  G4cout<<"test output 1 in main function!"<<G4endl;
   //initialize visualization
   G4VisManager* visManager = nullptr;
 
   //get the pointer to the User Interface manager
   G4UImanager* UImanager = G4UImanager::GetUIpointer();
-  G4cout<<"test output 2 in main function!"<<G4endl;
 
   if (ui)  {
-  G4cout<<"test output 2.1 in main function!"<<G4endl;
    //interactive mode
    visManager = new G4VisExecutive;
-  G4cout<<"test output 2.2 in main function!"<<G4endl;
    visManager->Initialize();
-  G4cout<<"test output 2.3 in main function!"<<G4endl;
    UImanager->ApplyCommand("/control/execute vis.mac");
-  G4cout<<"test output 2.4 in main function!"<<G4endl;
    ui->SessionStart();
-  G4cout<<"test output 2.5 in main function!"<<G4endl;
    delete ui;
-  G4cout<<"test output 3 in main function!"<<G4endl;
   }
   else  {
-  G4cout<<"test output 3.1 in main function!"<<G4endl;
    //batch mode
    G4String command = "/control/execute ";
    G4String fileName = argv[1];
    UImanager->ApplyCommand(command+fileName);
   }
 
-  G4cout<<"test output 4 in main function!"<<G4endl;
   //job termination
   delete visManager;
   delete runManager;
