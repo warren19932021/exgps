@@ -61,7 +61,7 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
   
   G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
     
-/*
+
   G4double r = vertex.mag();
   G4double dr = analysisManager->GetH1Width(2);
   G4double dv = 2*twopi*r*r*dr;  
@@ -75,7 +75,7 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
   analysisManager->FillH2(3,z,x);      
   analysisManager->FillH2(4,phi,cost);
   analysisManager->FillH2(5,phi,theta);
- */ 
+
   // fill ntuple  
   G4cout<<"test output1 "<<G4endl;
   analysisManager->FillNtupleIColumn(0,2);

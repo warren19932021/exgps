@@ -44,10 +44,70 @@ RunAction::RunAction()
 // : G4UserRunAction(), fHistoManager(0)
 // : G4UserRunAction()
 {
+  G4AnalysisManager* analysis = G4AnalysisManager::Instance();
+
+
+
+
+  // Default values (to be reset via /analysis/h1/set command)               
+  G4int nbins = 100;
+  G4double vmin = 0.;
+  G4double vmax = 100.;
+
+  // Create all histograms as inactivated 
+  // as we have not yet set nbins, vmin, vmax
+  //
+  analysis->SetHistoDirectoryName("histo");  
+  analysis->SetFirstHistoId(1);
+    
+  G4int id = analysis->CreateH1("h1.1","kinetic energy", nbins, vmin, vmax);
+  analysis->SetH1Activation(id, false);
+    
+  id = analysis->CreateH1("h1.2","vertex dist dN/dv = f(r)", nbins, vmin, vmax);
+  analysis->SetH1Activation(id, false);
+
+  id = analysis->CreateH1("h1.3","direction: cos(theta)", nbins, vmin, vmax);
+  analysis->SetH1Activation(id, false);
+
+  id = analysis->CreateH1("h1.4","direction: phi", nbins, vmin, vmax);
+  analysis->SetH1Activation(id, false);  
+
+  // histos 2D
+  //
+  id = analysis->CreateH2("h2.1","vertex: XY",nbins,vmin,vmax, nbins,vmin,vmax);
+  analysis->SetH2Activation(id, false);
+
+  id = analysis->CreateH2("h2.2","vertex: YZ",nbins,vmin,vmax, nbins,vmin,vmax);
+  analysis->SetH2Activation(id, false);
+
+  id = analysis->CreateH2("h2.3","vertex: ZX",nbins,vmin,vmax, nbins,vmin,vmax);
+  analysis->SetH2Activation(id, false);
+
+  id = analysis->CreateH2("h2.4","direction: phi-cos(theta)",
+                                          nbins,vmin,vmax, nbins,vmin,vmax);
+  analysis->SetH2Activation(id, false);
+
+  id = analysis->CreateH2("h2.5","direction: phi-theta",
+                                          nbins,vmin,vmax, nbins,vmin,vmax);
+  analysis->SetH2Activation(id, false);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
      G4cout<<"test output in RunAction::RunAction   111111111"<<G4endl;
 
-  G4AnalysisManager* analysis = G4AnalysisManager::Instance();
+  //G4AnalysisManager* analysis = G4AnalysisManager::Instance();
      G4cout<<"test output in RunAction::RunAction   222222222"<<G4endl;
   analysis->CreateNtuple("test", "test");
      G4cout<<"test output in RunAction::RunAction   333333333"<<G4endl;
@@ -87,8 +147,8 @@ void RunAction::BeginOfRunAction(const G4Run*)
      G4cout<<"test output in RunAction::BeginOfRunAction   222222222"<<G4endl;
 //  if ( analysisManager->IsActive() ) {
      G4cout<<"test output in RunAction::BeginOfRunAction   333333333"<<G4endl;
-     //analysisManager->OpenFile();
-     analysisManager->OpenFile("testest.root");
+     analysisManager->OpenFile();
+     //analysisManager->OpenFile("testest.root");
 //  }  
 }
 

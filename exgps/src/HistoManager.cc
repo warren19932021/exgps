@@ -57,7 +57,7 @@ void HistoManager::Book()
   // in HistoManager.hh
   //
   G4AnalysisManager* analysis = G4AnalysisManager::Instance();
-/*  
+ 
   analysis->SetFileName(fFileName);
   analysis->SetVerboseLevel(1);
   analysis->SetActivation(true);     //enable inactivation of histos, nTuples
@@ -104,7 +104,7 @@ void HistoManager::Book()
                                           nbins,vmin,vmax, nbins,vmin,vmax);
   analysis->SetH2Activation(id, false);
 
-*/
+
 
   // nTuples
   //
