@@ -78,7 +78,8 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
  */ 
   // fill ntuple  
   G4cout<<"test output1 "<<G4endl;
-  analysisManager->FillNtupleIColumn(0,pid);
+  analysisManager->FillNtupleIColumn(0,2);
+  //analysisManager->FillNtupleIColumn(0,pid);
   G4cout<<"test output2 "<<G4endl;
   analysisManager->FillNtupleDColumn(1,ekin);
   analysisManager->FillNtupleDColumn(2,x);

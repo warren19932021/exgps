@@ -37,10 +37,16 @@
 #include "G4UserRunAction.hh"
 #include "globals.hh"
 
+
+//-------I add this header file
+#include "g4root.hh"
+
+
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 class G4Run;
-class HistoManager;
+//class HistoManager;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -53,8 +59,8 @@ class RunAction : public G4UserRunAction
    virtual void BeginOfRunAction(const G4Run*);
    virtual void EndOfRunAction(const G4Run*);
 
-  private:
-   HistoManager* fHistoManager;
+//  private:
+//   HistoManager* fHistoManager;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
