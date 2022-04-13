@@ -122,7 +122,7 @@ void HistoManager::Book()
   analysis->CreateNtupleDColumn("weight");        //column 7
   //analysis->FinishNtuple();
   analysis->FinishNtuple(0);
-  
+ G4cout<<"test output in HistoManager file"<<G4endl; 
 //  analysis->SetNtupleActivation(false);             
 }
 

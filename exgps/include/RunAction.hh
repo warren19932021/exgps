@@ -35,8 +35,9 @@
 #define RunAction_h 1
 
 #include "G4UserRunAction.hh"
-#include "globals.hh"
+#include "G4Run.hh"
 
+#include "globals.hh"
 
 //-------I add this header file
 #include "g4root.hh"
