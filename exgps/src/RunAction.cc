@@ -92,8 +92,8 @@ RunAction::RunAction()
 
 
   //G4AnalysisManager* analysis = G4AnalysisManager::Instance();
-  analysis->CreateNtuple("test", "test");
-  //analysis->CreateNtuple("101", "Primary Particle Tuple");
+  //analysis->CreateNtuple("test", "test");
+  analysis->CreateNtuple("101", "Primary Particle Tuple");
   analysis->CreateNtupleIColumn("particleID");    //column 0
   analysis->CreateNtupleDColumn("Ekin");          //column 1
   analysis->CreateNtupleDColumn("posX");          //column 2
